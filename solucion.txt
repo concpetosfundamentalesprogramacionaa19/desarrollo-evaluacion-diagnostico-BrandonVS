@@ -1,0 +1,73 @@
+Proceso solucion
+	//Inicializacion de variables
+	totaldeprecios<-0
+	totaldeimpuestos<-0
+	totaldeautos<-0
+	i<-1
+	num_autos<-0
+	auto_precio<-0
+	aux1<-0
+	aux2<-0
+	aux3<-0
+	aux4<-0
+	conta<-0
+	contc<-0
+	contch<-0
+	conto<-0
+	//Ingresar las variables
+	Escribir "Cuantos autos va a ingresar."
+	Leer num_autos
+	//Comprobar de que pais es el auto y calcular el precio de venta
+	mientras (i<=num_autos) hacer
+		Escribir "Ingrese el origen del auto."
+		Leer auto_origen
+		escribir "Ingrese el precio del auto."
+		Leer auto_precio
+		Escribir "Ingrese la marca del auto."
+		Leer auto_marca
+		si (auto_origen="argentina" o auto_origen="Argentina") entonces
+			aux1<-auto_precio
+			auto_precio<-(auto_precio*20)/100
+			impa<-auto_precio
+			auto_preciofa<-auto_precio+aux1
+			conta<-conta+1
+			i<-i+1
+		Sino
+			si (auto_origen="colombia" o auto_origen="Colombia") entonces
+				aux2<-auto_precio
+				auto_precio<-(auto_precio*25)/100
+				impc<-auto_precio
+				auto_preciofc<-auto_precio+aux2
+				contc<-contc+1
+				i<-i+1
+			Sino
+				si (auto_origen="chile" o auto_origen="Chile") entonces
+					aux3<-auto_precio
+					auto_precio<-(auto_precio*30)/100
+					impch<-auto_precio
+					auto_preciofch<-auto_precio+aux3
+					contch<-contch+1
+					i<-i+1
+				Sino
+					aux4<-auto_precio
+					auto_precio<-(auto_precio*40)/100
+					impo<-auto_precio
+					auto_preciofo<-auto_precio+aux4
+					conto<-conto+1
+					i<-i+1
+				finsi
+			FinSi
+		FinSi
+	FinMientras
+	//Total de autos importados
+	totaldeautos<-conta+contc+contch+conto
+	Escribir "Se importaron ",+totaldeautos," autos."
+	//Total de impuestos
+	totaldeimpuestos<-impa+impc+impch+impo
+	Escribir "Se obtubieron ",+totaldeimpuestos, " con impuestos."
+	//Total de precios
+	auto_preciof<-auto_preciofa+auto_preciofc+auto_precioch+auto_preciofo
+	Escribir "El total de precios de los autos es: ",+auto_preciof
+	//Total de autos de los paises de origen
+	Escribir "Se obtuvieron ",+conta," autos de Argentina, ",+contc," autos de Colombia ",+contch," autos de Chile y ",+conto," autos de otros paises."
+FinProceso
